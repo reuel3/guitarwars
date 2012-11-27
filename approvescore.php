@@ -37,13 +37,10 @@
   if (isset($_POST['submit'])) {
     if ($_POST['confirm'] == 'Yes') {
       
-      // Connect to the database
-      $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-
-      // Delete the score data from the database
+      // Approve the score data from the database
       $query = "update guitarwars set approved = 1 where id = $id";
-      mysqli_query($dbc, $query);
-      mysqli_close($dbc);
+      mysql_query($query);
+      mysql_close($dbc);
 
       // Confirm success with the user
       echo '<p>The high score of ' . $score . ' for ' . $name . ' was successfully approved.';

@@ -16,13 +16,10 @@
 
   if (isset($_POST['submit'])) {
 
-    // Connect to the database
-      $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-          or die('Error connecting to db');
     // Grab the score data from the POST
-    $name = mysqli_real_escape_string ($dbc, trim($_POST['name']));
-    $score = mysqli_real_escape_string ($dbc, trim($_POST['score']));
-    $screenshot = mysqli_real_escape_string ($dbc, trim($_FILES['screenshot']['name']));
+    $name = mysql_real_escape_string(trim($_POST['name']));
+    $score = mysql_real_escape_string(trim($_POST['score']));
+    $screenshot = mysql_real_escape_string(trim($_FILES['screenshot']['name']));
     $screenshot_type = $_FILES['screenshot']['type'];
     $screenshot_size = $_FILES['screenshot']['size'];
 
@@ -35,7 +32,7 @@
 
             // Write the data to the database
             $query = "INSERT INTO guitarwars ( date, name, score, screenshot ) VALUES (NOW(), '$name', '$score', '$screenshot')";
-            $result = mysqli_query($dbc, $query)
+            $result = mysql_query($query)
                 or die('Error inserting into db');
             // Confirm success with the user
             echo '<p>Thanks for adding your new high score!</p>';
@@ -49,7 +46,7 @@
             $score = "";
             $screenshot = "";
 
-            mysqli_close($dbc);
+            mysql_close($dbc);
           } else {
             echo '<p class="error">Sorry, there was a problem uploading your screen shot image.</p>';
           }

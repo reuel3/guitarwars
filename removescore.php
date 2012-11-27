@@ -39,13 +39,10 @@
       // Delete the screen shot image file from the server
       @unlink(GW_UPLOADPATH . $screenshot);
 
-      // Connect to the database
-      $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-
       // Delete the score data from the database
       $query = "DELETE FROM guitarwars WHERE id = $id LIMIT 1";
-      mysqli_query($dbc, $query);
-      mysqli_close($dbc);
+      mysql_query($query);
+      mysql_close($dbc);
 
       // Confirm success with the user
       echo '<p>The high score of ' . $score . ' for ' . $name . ' was successfully removed.';
