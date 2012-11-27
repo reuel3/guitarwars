@@ -17,7 +17,7 @@
   require_once('connectvars.php');
 
   // Connect to the database 
-  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+  $dbc = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
 
   // Retrieve the score data from MySQL
   $query = "SELECT * FROM guitarwars where approved = 1 order by score desc, date asc";
