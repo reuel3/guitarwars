@@ -3,7 +3,7 @@
 
 
 	define('DB_HOST', 'int.instance32897.db.xeround.com:11076');
-	define('DB_USER', 'skip');
+	define('DB_USER', 'app9522621');
 	define('DB_PASSWORD', 'skip1234');
 	define('DB_NAME', 'gwdb');
 	/*define('DB_PORT', '11076');
