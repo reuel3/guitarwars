@@ -2,7 +2,7 @@
 	
 
 
-	define('DB_HOST', 'instance32897.db.xeround.com');
+	define('DB_HOST', 'int.instance32897.db.xeround.com');
 	define('DB_USER', 'app9522621');
 	define('DB_PASSWORD', 'VaCqEQGm');
 	define('DB_NAME', 'app9522621');
