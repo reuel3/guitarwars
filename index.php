@@ -26,7 +26,7 @@
   //$query = "SELECT * FROM guitarwars where approved = 1 order by score desc, date asc";
   $query = "SELECT * FROM guitarwars";
   $data = mysql_query($query)
-      or die("Could not run query");
+      or die(mysql_error());
 
   // Loop through the array of score data, formatting it as HTML 
   echo '<table>';
@@ -40,11 +40,11 @@
     echo '<span class="score">' . $row['score'] . '</span><br />';
     echo '<strong>Name:</strong> ' . $row['name'] . '<br />';
     echo '<strong>Date:</strong> ' . $row['date'] . '</td>';
-    /*if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
+    if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
       echo '<td><img src="' . GW_UPLOADPATH . $row['screenshot'] . '" alt="Score image" /></td>';
     } else {
       echo '<td><img src="images/unverified.gif" alt="Unverified score" /></td>';
-    }*/
+    }
     echo '</tr>';
     $i++;
   }
