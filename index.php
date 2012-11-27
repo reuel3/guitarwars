@@ -17,16 +17,16 @@
   require_once('connectvars.php');
 
   // Connect to the database 
-  $dbc = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
+  $dbc = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
   // Retrieve the score data from MySQL
   $query = "SELECT * FROM guitarwars where approved = 1 order by score desc, date asc";
-  $data = mysqli_query($dbc, $query);
+  $data = mysql_query($dbc, $query);
 
   // Loop through the array of score data, formatting it as HTML 
   echo '<table>';
   $i = 0;
-  while ($row = mysqli_fetch_array($data)) { 
+  while ($row = mysql_fetch_array($data)) { 
     if ($i == 0) {
       echo '<tr><td colspan="2" class="topscoreheader">Top Score: ' . $row['score'] . '</td></tr>';
     }
