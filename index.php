@@ -23,7 +23,8 @@
   mysql_select_db(DB_NAME);
 
   // Retrieve the score data from MySQL
-  $query = "SELECT * FROM guitarwars where approved = 1 order by score desc, date asc";
+  //$query = "SELECT * FROM guitarwars where approved = 1 order by score desc, date asc";
+  $query = "SELECT * FROM guitarwars";
   $data = mysql_query($query)
       or die("Could not run query");
 
